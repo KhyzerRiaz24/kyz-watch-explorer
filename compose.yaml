@@ -1,0 +1,20 @@
+services:
+  kyz:
+    build: .
+    ports:
+      - '127.0.0.1:4177:4177'
+    environment:
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-}
+      TRUST_PROXY: ${TRUST_PROXY:-0}
+    volumes:
+      - kyz-data:/app/data
+    restart: unless-stopped
+    init: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+volumes:
+  kyz-data:
