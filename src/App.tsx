@@ -26,7 +26,7 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean
   }
 }
 function Layout() {
-  const { saved, watches, comparison, clearComparison, setAssistantOpen, selected, toast } =
+  const { saved, watches, comparison, clearComparison, setAssistantOpen, selected, toast, config } =
     useApp();
   const [menu, setMenu] = useState(false);
   const location = useLocation();
@@ -159,7 +159,7 @@ function Layout() {
               >
                 Khyzer Riaz <ArrowUpRight size={15} />
               </a>
-              <Link to="/studio">Catalogue studio</Link>
+              {config.adminEnabled && <Link to="/studio">Catalogue studio</Link>}
             </div>
           </div>
           <div className="footer-bottom">

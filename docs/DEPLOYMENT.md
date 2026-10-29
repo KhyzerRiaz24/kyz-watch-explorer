@@ -54,3 +54,11 @@ Keep the previous source revision/image and a compatible pre-upgrade database ba
 ## CI
 
 The included GitHub Actions workflow runs on pushes to `main` and pull requests. It uses Node 24, runs checks and the dependency audit, installs Chromium, tests browser behaviour and builds the Docker image. It does not deploy to a paid provider or publish a repository automatically.
+
+## Free public portfolio demo on Render
+
+`render.yaml` describes a free Docker web service using port 10000 and the existing health endpoint. It contains no credentials. The public service intentionally has no `ADMIN_TOKEN`, `OPENAI_API_KEY` or `OPENAI_MODEL`: visitors use the built-in advisor, and catalogue editing stays private. The local Docker deployment can still use its private editor and optional live AI.
+
+Render’s free web services sleep after inactivity and may take about a minute to resume. Their local files are ephemeral, so the public catalogue is treated as a read-only seeded demonstration. Saved shortlists remain in each visitor’s browser. Persistent curator editing needs a persistent disk on a paid instance or another durable database design. No paid plan or disk is required for this public demo.
+
+Reference: [Render free service limitations](https://render.com/docs/free).

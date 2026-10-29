@@ -1,7 +1,9 @@
 import { useState, type FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { LockKeyhole, Plus, Save, Trash2, LogOut, X, ArrowRight } from 'lucide-react';
 import { useApp } from './state';
 import { api, money, type Watch } from './types';
+import { EmptyState } from './ui';
 
 const blank = (): Watch => ({
   id: '',
@@ -28,7 +30,7 @@ const blank = (): Watch => ({
   },
 });
 export default function Studio() {
-  const { watches, reload, notify } = useApp();
+  const { watches, reload, notify, config } = useApp();
   const [key, setKey] = useState(''),
     [token, setToken] = useState(''),
     [error, setError] = useState(''),
@@ -113,6 +115,18 @@ export default function Studio() {
     } finally {
       setBusy(false);
     }
+  }
+  if (!config.adminEnabled) {
+    return (
+      <div className="container page-content">
+        <EmptyState title="Catalogue editing is private." icon={<LockKeyhole size={30} />}>
+          <p>This public demonstration is for discovering, saving and comparing watches.</p>
+          <Link className="button dark" to="/collections">
+            Explore the collection <ArrowRight size={16} />
+          </Link>
+        </EmptyState>
+      </div>
+    );
   }
   return (
     <div className="container page-content studio-page">

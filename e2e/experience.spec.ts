@@ -175,3 +175,19 @@ test('API failures show retry and unknown routes show a helpful page', async ({ 
   await page.goto('/does-not-exist');
   await expect(page.getByText('This page has slipped out of time.')).toBeVisible();
 });
+
+test('the public demo keeps catalogue editing private', async ({ page }) => {
+  await page.route('**/api/config', (route) =>
+    route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({ aiEnabled: false, adminEnabled: false, currency: 'USD' }),
+    }),
+  );
+  await page.goto('/studio');
+  await expect(page.getByRole('heading', { name: 'Catalogue editing is private.' })).toBeVisible();
+  await expect(page.getByLabel('Private access key')).toHaveCount(0);
+  await expect(page.getByRole('link', { name: 'Catalogue studio', exact: true })).toHaveCount(0);
+  await page.getByRole('link', { name: 'Explore the collection' }).click();
+  await expect(page.locator('.watch-card')).toHaveCount(10);
+});

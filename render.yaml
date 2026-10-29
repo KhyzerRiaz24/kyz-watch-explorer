@@ -1,0 +1,23 @@
+# Free, read-only portfolio demo. Secrets intentionally stay out of hosted config.
+services:
+  - type: web
+    name: kyz-watch-explorer
+    runtime: docker
+    plan: free
+    region: frankfurt
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: '10000'
+      - key: DATABASE_PATH
+        value: /app/data/kyz.sqlite
+      - key: TRUST_PROXY
+        value: '1'
