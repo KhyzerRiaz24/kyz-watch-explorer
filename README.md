@@ -6,7 +6,7 @@ A watch discovery and comparison application by **Khyzer Riaz**, developed from 
 
 [![Verify portfolio application](https://github.com/KhyzerRiaz24/kyz-watch-explorer/actions/workflows/ci.yml/badge.svg)](https://github.com/KhyzerRiaz24/kyz-watch-explorer/actions/workflows/ci.yml)
 
-[GitHub repository](https://github.com/KhyzerRiaz24/kyz-watch-explorer)
+[Live demo](https://kyz-watch-explorer.onrender.com) · [GitHub repository](https://github.com/KhyzerRiaz24/kyz-watch-explorer)
 
 The free public demo uses the built-in advisor and a read-only catalogue. The optional live AI and protected editor remain available in a privately configured deployment.
 

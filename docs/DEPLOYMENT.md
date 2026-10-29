@@ -57,6 +57,8 @@ The included GitHub Actions workflow runs on pushes to `main` and pull requests.
 
 ## Free public portfolio demo on Render
 
+The public demo is [kyz-watch-explorer.onrender.com](https://kyz-watch-explorer.onrender.com). The Render service uses the public GitHub `main` branch, the Docker runtime, Frankfurt region and `/api/health`. Auto-deploy is configured as **After CI Checks Pass**; use **Manual Deploy → Deploy latest commit** in Render if a repository update does not trigger automatically.
+
 `render.yaml` describes a free Docker web service using port 10000 and the existing health endpoint. It contains no credentials. The public service intentionally has no `ADMIN_TOKEN`, `OPENAI_API_KEY` or `OPENAI_MODEL`: visitors use the built-in advisor, and catalogue editing stays private. The local Docker deployment can still use its private editor and optional live AI.
 
 Render’s free web services sleep after inactivity and may take about a minute to resume. Their local files are ephemeral, so the public catalogue is treated as a read-only seeded demonstration. Saved shortlists remain in each visitor’s browser. Persistent curator editing needs a persistent disk on a paid instance or another durable database design. No paid plan or disk is required for this public demo.

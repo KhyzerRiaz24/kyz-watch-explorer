@@ -4,6 +4,14 @@
 
 KYZ — Watch Explorer | Full-stack watch discovery and comparison
 
+## Project links
+
+- Live demo: https://kyz-watch-explorer.onrender.com
+- Source code: https://github.com/KhyzerRiaz24/kyz-watch-explorer
+- Automated checks: https://github.com/KhyzerRiaz24/kyz-watch-explorer/actions/workflows/ci.yml
+
+The public demo uses the built-in advisor; optional live AI and catalogue editing are available in a privately configured deployment.
+
 ## Project description
 
 Reworked my university watch website into a responsive discovery application using React, TypeScript, Node.js, Express and SQLite. Features include searchable and filterable watch references, persistent browser shortlists, shareable comparisons, a catalogue advisor and a protected catalogue editor.
@@ -24,7 +32,9 @@ Built with React, TypeScript, Node.js, Express and SQLite, with optional server-
 
 #SoftwareEngineering #React #TypeScript #NodeJS #DevOps #DataAnalytics #PortfolioProject
 
-Before posting, add the actual public repository/demo links after they exist. Do not claim a public deployment or successful hosted CI run until those steps have occurred.
+Try the demo: https://kyz-watch-explorer.onrender.com
+
+View the code: https://github.com/KhyzerRiaz24/kyz-watch-explorer
 
 ## A practical 2-minute demo
 
@@ -53,6 +63,6 @@ Before posting, add the actual public repository/demo links after they exist. Do
 
 **AI integration:** Server-side model requests, bounded prompts, timeouts, controlled fallbacks and deterministic recommendation constraints. A live provider call needs your configured credentials; tests use fixtures. This is not evidence of training a model.
 
-**DevOps:** Reproducible build, production server, health endpoint, container configuration, persistent volume, CI configuration and dependency maintenance. Hosted operation and cloud metrics require a subsequent deployment.
+**DevOps:** Reproducible build, production server, health endpoint, container configuration, persistent volume, CI configuration and dependency maintenance. The public Docker deployment runs on Render’s free tier with an HTTP health check; GitHub Actions runs the verification workflow. Cloud performance metrics have not been benchmarked.
 
 **Data analysis:** Numeric data modelling, SQL summaries, median/mean, labelled visualisation and CSV export. Analysis uses demonstration data, not real-market conclusions.
